@@ -2,8 +2,8 @@ import requests
 
 __version__ = '1.0.0'
 
-class Connection():
-    "Connent to Bitly with Access Token"
+class Bitly():
+    "Connect to Bitly with Access Token"
 
     def __init__(self, token: str):
         if token is None or token == '': raise BitlyException(000, 'Empty token! Please give a valid token')
@@ -43,6 +43,9 @@ class Connection():
         if response.status_code == 200 or response.status_code == 201 : return response.json()['long_url']
         elif response.status_code == 403: raise BitlyException(403, 'Your acccess token is invalid, please give valid one.')
         else: raise BitlyException(response.status_code, response.json()['description'])
+            
+class Connection(Bitly):
+    pass
 
 class BitlyException(Exception):
     def __init__(self, status_code, description):
