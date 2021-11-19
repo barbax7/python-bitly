@@ -7,17 +7,17 @@ class Bitly():
 
     def __init__(self, token: str):
         if token is None or token == '': raise BitlyException(000, 'Empty token! Please give a valid token')
-        self.TOKEN = token
+        self.__TOKEN = token
         
-        self.headers = {
-            'Authorization': 'Bearer {}'.format(self.TOKEN),
+        self.__headers = {
+            'Authorization': 'Bearer {}'.format(self.__TOKEN),
             'Content-Type': 'application/json'
         }
 
     def shorten(self, long_url: str):
         "Shorten the given link"
 
-        headers = self.headers
+        headers = self.__headers
 
         data = '{"long_url": "%s", "domain": "bit.ly"}' % long_url
 
@@ -29,7 +29,7 @@ class Bitly():
     def expand(self, short_url: str):
         "Obtain the long url from a short link"
 
-        headers = self.headers
+        headers = self.__headers
 
         if "http://" in short_url:
             short_url = short_url.replace("http://","")
