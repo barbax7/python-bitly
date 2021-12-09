@@ -3,6 +3,10 @@ Very simple library to shorten and expand links with Bitly. You must create an a
 
 ## How to install
 Run this command on terminal:
-```pip install git+https://github.com/barbax7/barbax_bitly.git```
+```
+pip install git+https://github.com/barbax7/barbax_bitly.git
+```
 or write in your `requirements.txt` file:
-```git+https://github.com/barbax7/barbax_bitly.git```
+```
+git+https://github.com/barbax7/barbax_bitly.git
+```
